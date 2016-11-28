@@ -6,14 +6,13 @@ import android.view.View
 import com.vslimit.kotlindemo.App
 import com.vslimit.kotlindemo.R
 import com.vslimit.kotlindemo.event.BaseEvent
+import com.vslimit.kotlindemo.model.IPResult
 import com.vslimit.kotlindemo.model.Result
 import com.vslimit.kotlindemo.util.Bus
 import com.vslimit.kotlindemo.util.NetworkUtil
 import com.vslimit.kotlindemo.util.net.volley.Listener
 import com.vslimit.kotlindemo.util.net.volley.add
 import com.vslimit.kotlindemo.util.net.volley.toString
-import com.vslimit.kotlindemo.fragment.BaseFragment
-import com.vslimit.kotlindemo.model.IPResult
 import kotlinx.android.synthetic.main.fragment_volley.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.info
@@ -61,6 +60,8 @@ class VolleyFragment() : BaseFragment() {
             val url = "http://ip.taobao.com/service/getIpInfo.php?ip=63.223.108.42"
             Log.d("Url:::", "")
             App.queue!!.add(listener, url)
+            //post 调用
+            //App.queue!!.post(listener, url, hashMapOf("aaa" to "aaa", "bbb" to "bbb"))
             toast("正在加载中...")
         } else {
             alert("网络错误", "网络未连接，请检查网络")

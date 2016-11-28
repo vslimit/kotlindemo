@@ -3,8 +3,6 @@ package com.vslimit.kotlindemo.util.net.volley
 import android.content.res.Resources
 import com.android.volley.*
 import com.vslimit.kotlindemo.R
-import com.vslimit.kotlindemo.util.net.volley.FastJsonRequest
-import com.vslimit.kotlindemo.util.net.volley.NormalPostRequest
 
 fun VolleyError.toString(res: Resources): String {
     when {
@@ -49,9 +47,8 @@ inline fun <reified T : Any> RequestQueue.add(listener: Listener<T>?,
 
 inline fun <reified T : Any> RequestQueue.post(listener: Listener<T>?,
                                                url: String,
-                                               noinline configure: ((Request<*>) -> Any)? = null,
-                                               param: MutableMap<String, String> = hashMapOf()) {
-
+                                               param: MutableMap<String, String> = hashMapOf(),
+                                               noinline configure: ((Request<*>) -> Any)? = null) {
     val volleyListener = Response.Listener<T> { r -> listener?.onCompleted(null, r) }
     val errorListener = Response.ErrorListener { e -> listener?.onCompleted(e, null) }
     val request = NormalPostRequest(url, T::class.java, volleyListener, errorListener, param)

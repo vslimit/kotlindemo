@@ -1,7 +1,7 @@
 package com.vslimit.kotlindemo.model
 
 /**
- * Created by sky on 16/11/26.
+ * Created by vslimit on 16/11/26.
  */
 open class Result<T> {
     open var code: Int = SUCCESS

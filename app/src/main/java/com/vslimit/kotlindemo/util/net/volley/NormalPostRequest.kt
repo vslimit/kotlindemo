@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException
 /**
  * Created by vslimit on 16/5/26.
  */
-class   NormalPostRequest<T>(url: String, private val clazz: Class<T>, private val mListener: Listener<T>, errorListener: Response.ErrorListener, private val mMap: Map<String, String>) : Request<T>(Method.POST, url, errorListener) {
+class NormalPostRequest<T>(url: String, private val clazz: Class<T>, private val mListener: Listener<T>, errorListener: Response.ErrorListener, private val mMap: Map<String, String>) : Request<T>(Method.POST, url, errorListener) {
 
     //mMap是已经按照前面的方式,设置了参数的实例
     @Throws(AuthFailureError::class)
