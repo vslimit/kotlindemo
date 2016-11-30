@@ -1,7 +1,6 @@
 package com.vslimit.kotlindemo.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.vslimit.kotlindemo.R
 import com.vslimit.kotlindemo.model.IPResult
@@ -9,7 +8,6 @@ import com.vslimit.kotlindemo.service.RestfulService
 import com.vslimit.kotlindemo.service.ServiceFactory
 import com.vslimit.kotlindemo.util.net.retrofit.toString
 import kotlinx.android.synthetic.main.fragment_volley.*
-import org.jetbrains.anko.info
 import org.jetbrains.anko.support.v4.toast
 import retrofit.RetrofitError
 import rx.Subscriber
