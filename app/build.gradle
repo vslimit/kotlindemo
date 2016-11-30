@@ -46,7 +46,8 @@ dependencies {
     compile "com.squareup.okhttp:okhttp:$okhttp_version"
     compile "com.squareup.okhttp:okhttp-urlconnection:$okhttp_version"
     compile 'com.alibaba:fastjson:1.2.1'
-
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
 }
 repositories {
     mavenCentral()

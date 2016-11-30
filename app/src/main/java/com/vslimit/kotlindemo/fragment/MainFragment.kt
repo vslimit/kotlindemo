@@ -8,7 +8,6 @@ import com.vslimit.kotlindemo.R
 import com.vslimit.kotlindemo.activity.MainActivity
 import com.vslimit.kotlindemo.adapter.MainAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
-import org.jetbrains.anko.info
 import org.jetbrains.anko.support.v4.act
 
 
@@ -18,7 +17,7 @@ import org.jetbrains.anko.support.v4.act
 class MainFragment() : BaseFragment() {
     override val layoutResourceId: Int = R.layout.fragment_main
     var adapter: MainAdapter? = null
-    var items = arrayListOf("volley demo")
+    var items = arrayListOf("volley demo","retrofit demo")
 
     var itemsMap = hashMapOf<String, Fragment>()
     companion object {
@@ -30,6 +29,7 @@ class MainFragment() : BaseFragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         itemsMap.put("volley demo", VolleyFragment.getInstance())
+        itemsMap.put("retrofit demo", RetrofitFragment.getInstance())
         val layoutManager: LinearLayoutManager = LinearLayoutManager(act)
         demoRv.layoutManager = layoutManager
         adapter = MainAdapter(items) {
