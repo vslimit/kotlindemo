@@ -11,12 +11,15 @@ import rx.Observable
 interface RestfulService {
 
     /**
-     * post实现样例代码，非可用
+     * post请求实现样例代码，非可用
      */
     @FormUrlEncoded
     @POST("/login")
     fun login(@Field("q") q: String): Observable<IPResult>
 
+    /**
+     * get请求代码，可用
+     */
     @GET("/getIpInfo.php")
     fun getIpInfo(@Query("ip") ip: String): Observable<IPResult>
 

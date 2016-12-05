@@ -13,12 +13,34 @@ import org.jetbrains.anko.AnkoLogger
 abstract class BaseFragment : Fragment(), AnkoLogger {
     abstract val layoutResourceId: Int
 
+    private val STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (savedInstanceState != null) {
+            val isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN)
+
+            val ft = fragmentManager.beginTransaction()
+            if (isSupportHidden) {
+                ft.hide(this)
+            } else {
+                ft.show(this)
+            }
+            ft.commit()
+        }
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(layoutResourceId, container, false)
     }
 
     override fun onResume() {
         super.onResume()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState!!.putBoolean(STATE_SAVE_IS_HIDDEN, isHidden)
+
     }
 
     override fun onPause() {

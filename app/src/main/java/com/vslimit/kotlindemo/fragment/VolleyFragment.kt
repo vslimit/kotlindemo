@@ -10,9 +10,9 @@ import com.vslimit.kotlindemo.model.IPResult
 import com.vslimit.kotlindemo.model.Result
 import com.vslimit.kotlindemo.util.Bus
 import com.vslimit.kotlindemo.util.NetworkUtil
-import com.vslimit.kotlindemo.util.net.volley.Listener
-import com.vslimit.kotlindemo.util.net.volley.add
-import com.vslimit.kotlindemo.util.net.volley.toString
+import com.vslimit.kotlindemo.model.net.volley.Listener
+import com.vslimit.kotlindemo.model.net.volley.add
+import com.vslimit.kotlindemo.model.net.volley.toString
 import kotlinx.android.synthetic.main.fragment_volley.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.info

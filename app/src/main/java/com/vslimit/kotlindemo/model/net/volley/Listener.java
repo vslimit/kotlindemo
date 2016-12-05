@@ -1,4 +1,4 @@
-package com.vslimit.kotlindemo.util.net.volley;
+package com.vslimit.kotlindemo.model.net.volley;
 
 import com.android.volley.VolleyError;
 

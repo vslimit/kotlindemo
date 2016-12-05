@@ -8,6 +8,7 @@ import com.vslimit.kotlindemo.R
 import com.vslimit.kotlindemo.activity.MainActivity
 import com.vslimit.kotlindemo.adapter.MainAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
+import org.jetbrains.anko.info
 import org.jetbrains.anko.support.v4.act
 
 
@@ -41,11 +42,29 @@ class MainFragment() : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
+        info("onResume")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        info("onStart")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        info("onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        info("onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        info("onDestroy")
     }
+
 
 
 }
