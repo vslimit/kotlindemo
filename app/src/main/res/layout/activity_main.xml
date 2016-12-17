@@ -4,8 +4,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context=".activity.MainActivity">
+    <include layout="@layout/toolbar" android:id="@+id/tool"/>
     <android.support.v7.widget.RecyclerView
             android:id="@+id/tabRv"
+
             android:layout_width="match_parent"
             android:layout_height="49dp"
             android:layout_alignParentBottom="true"
@@ -13,6 +15,7 @@
     <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_above="@id/tabRv" android:id="@+id/line" android:background="@android:color/black"/>
     <FrameLayout android:layout_above="@id/line"
                  android:id="@+id/frameLayout"
+                 android:layout_below="@id/tool"
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"/>
 </RelativeLayout>

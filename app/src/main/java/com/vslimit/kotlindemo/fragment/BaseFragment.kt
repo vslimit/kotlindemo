@@ -11,6 +11,7 @@ import org.jetbrains.anko.AnkoLogger
  * Created by vslimit on 16/3/9.
  */
 abstract class BaseFragment : Fragment(), AnkoLogger {
+
     abstract val layoutResourceId: Int
 
     private val STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN"
@@ -19,7 +20,6 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
         super.onCreate(savedInstanceState)
         if (savedInstanceState != null) {
             val isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN)
-
             val ft = fragmentManager.beginTransaction()
             if (isSupportHidden) {
                 ft.hide(this)
@@ -29,6 +29,7 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
             ft.commit()
         }
     }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(layoutResourceId, container, false)
     }
@@ -50,5 +51,6 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
     override fun onDestroy() {
         super.onDestroy()
     }
+
 
 }

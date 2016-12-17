@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" xmlns:toolbar="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            toolbar:title="Kotlin Demo"
+            toolbar:titleTextColor="@android:color/white"
+            android:layout_height="?attr/actionBarSize">
+    </android.support.v7.widget.Toolbar>
+
+</android.support.design.widget.AppBarLayout>

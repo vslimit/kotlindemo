@@ -7,7 +7,7 @@ import de.greenrobot.event.EventBus
  */
 open class Bus {
     companion object {
-        val DEFAULT_BUS = EventBus.getDefault()
+        val DEFAULT_BUS = EventBus.getDefault()!!
 
         fun register(target: Any): Unit = DEFAULT_BUS.register(target)
         fun unregister(target: Any): Unit = DEFAULT_BUS.unregister(target)
