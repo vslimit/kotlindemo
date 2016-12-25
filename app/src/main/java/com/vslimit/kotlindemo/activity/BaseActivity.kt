@@ -1,13 +1,17 @@
 package com.vslimit.kotlindemo.activity
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import com.vslimit.kotlindemo.R
+import com.vslimit.kotlindemo.ui.LoadingDialog
 import com.vslimit.kotlindemo.ui.ToolbarManager
+import com.vslimit.kotlindemo.util.Const
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.find
 
@@ -20,10 +24,26 @@ abstract class BaseActivity : AppCompatActivity(), ToolbarManager, AnkoLogger {
 
     override val toolbar by lazy { find<Toolbar>(R.id.toolbar) }
 
+
+    var loadingDialog: LoadingDialog? = null
+
+    open var handler: Handler = object : Handler() {
+        override fun handleMessage(msg: Message) {
+            //定义一个Handler，用于处理下载线程与UI间通讯
+            if (!Thread.currentThread().isInterrupted) {
+                when (msg.what) {
+                    Const.SHOW -> loadingDialog!!.show()//显示进度对话框
+                    Const.HIDE -> loadingDialog!!.hide()//隐藏进度对话框，不可使用dismiss()、cancel(),否则再次调用show()时，显示的对话框小圆圈不会动。
+                }
+            }
+            super.handleMessage(msg)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutResourceId)
-
+        loadingDialog = LoadingDialog(this)
     }
 
     override fun onResume() {
@@ -41,7 +61,7 @@ abstract class BaseActivity : AppCompatActivity(), ToolbarManager, AnkoLogger {
 
     override fun onStop() {
         super.onStop()
-
+        loadingDialog!!.dismiss()
     }
 
     fun switchContent(from: Fragment, to: Fragment) {

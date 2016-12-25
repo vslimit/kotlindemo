@@ -1,14 +1,28 @@
 package com.vslimit.kotlindemo.activity
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.support.v7.app.AppCompatActivity
 import com.vslimit.kotlindemo.R
 import kotlinx.android.synthetic.main.activity_splash.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.startActivity
+import rx.Observable
+import rx.android.schedulers.AndroidSchedulers
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 class SplashActivity : AppCompatActivity(), AnkoLogger {
+
+    private val ANIM_TIME = 2000
+
+    private val SCALE_END = 1.15f
 
     //完整生命周期开始时调用
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +31,9 @@ class SplashActivity : AppCompatActivity(), AnkoLogger {
         info("onCreate:初始化一个Activity并填充UI")
         setContentView(R.layout.activity_splash)
         info("onCreate:${titleTv.text.toString()}")
-        startActivity<MainActivity>()
+//        startActivity<MainActivity>()
+        Observable.timer(1000, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread()).subscribe { startAnim() }
+
     }
 
     //在onCreate方法完成后调用，用于恢复UI状态
@@ -61,6 +77,27 @@ class SplashActivity : AppCompatActivity(), AnkoLogger {
         info("onSaveInstanceState:Save UI state changes to the savedInstanceState")
         info("onSaveInstanceState:如果进程被运行时终止并被重启，那么这个Bundle将被传递给onCreate和onRestoreInstanceState")
         info("onSaveInstanceState:killed and restarted by the run time.")
+    }
+
+
+    private fun startMainActivity() {
+    }
+
+    private fun startAnim() {
+        val animatorX = ObjectAnimator.ofFloat(imgIv, "scaleX", 1f, SCALE_END)
+        val animatorY = ObjectAnimator.ofFloat(imgIv, "scaleY", 1f, SCALE_END)
+
+        val translationY = ObjectAnimator.ofFloat(titleTv, "translationY", 150f, 300f)
+        val alpha = ObjectAnimator.ofFloat(titleTv, "alpha", 0f, 1f)
+        val set = AnimatorSet()
+        set.setDuration(ANIM_TIME.toLong()).play(translationY).with(alpha).before(animatorX).before(animatorY)
+        set.start()
+        set.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                this@SplashActivity.finish()
+            }
+        })
     }
 
 

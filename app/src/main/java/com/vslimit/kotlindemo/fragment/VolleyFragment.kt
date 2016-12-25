@@ -6,16 +6,17 @@ import android.view.View
 import com.vslimit.kotlindemo.App
 import com.vslimit.kotlindemo.R
 import com.vslimit.kotlindemo.event.BaseEvent
+import com.vslimit.kotlindemo.extensions.loading
 import com.vslimit.kotlindemo.model.IPResult
 import com.vslimit.kotlindemo.model.Result
-import com.vslimit.kotlindemo.util.Bus
-import com.vslimit.kotlindemo.util.NetworkUtil
 import com.vslimit.kotlindemo.model.net.volley.Listener
 import com.vslimit.kotlindemo.model.net.volley.add
 import com.vslimit.kotlindemo.model.net.volley.toString
+import com.vslimit.kotlindemo.util.Bus
+import com.vslimit.kotlindemo.util.Const
+import com.vslimit.kotlindemo.util.NetworkUtil
 import kotlinx.android.synthetic.main.fragment_volley.*
 import org.jetbrains.anko.async
-import org.jetbrains.anko.info
 import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.alert
 import org.jetbrains.anko.support.v4.toast
@@ -62,7 +63,7 @@ class VolleyFragment() : BaseFragment() {
             App.queue!!.add(listener, url)
             //post 调用
             //App.queue!!.post(listener, url, hashMapOf("aaa" to "aaa", "bbb" to "bbb"))
-            toast("正在加载中...")
+            loading(Const.SHOW)
         } else {
             alert("网络错误", "网络未连接，请检查网络")
         }
@@ -71,8 +72,7 @@ class VolleyFragment() : BaseFragment() {
     fun onEventMainThread(event: BaseEvent<IPResult>) {
         val error = event.error
         result = event.response
-        info(result)
-        toast("加载完成!!!")
+        loading(Const.HIDE)
         if (error != null) {
             toast(error.toString(resources))
         } else {
