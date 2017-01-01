@@ -32,6 +32,7 @@ class SplashActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_splash)
         info("onCreate:${titleTv.text.toString()}")
 //        startActivity<MainActivity>()
+        titleTv.alpha = 0f
         Observable.timer(1000, TimeUnit.MILLISECONDS).observeOn(AndroidSchedulers.mainThread()).subscribe { startAnim() }
 
     }

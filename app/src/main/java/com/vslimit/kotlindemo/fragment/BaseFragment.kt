@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import cn.com.scal.scalworkassistant.model.Base
+import com.vslimit.kotlindemo.event.BaseEvent
+import com.vslimit.kotlindemo.util.Bus
 import org.jetbrains.anko.AnkoLogger
 
 /**
@@ -36,6 +39,7 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
 
     override fun onResume() {
         super.onResume()
+        Bus.register(this)
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
@@ -49,7 +53,12 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
     }
 
     override fun onDestroy() {
+        Bus.unregister(this)
         super.onDestroy()
+    }
+
+    open fun onEvent(Event: BaseEvent<Base>) {
+
     }
 
 

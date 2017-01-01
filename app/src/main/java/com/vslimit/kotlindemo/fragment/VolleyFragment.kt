@@ -9,9 +9,9 @@ import com.vslimit.kotlindemo.event.BaseEvent
 import com.vslimit.kotlindemo.extensions.loading
 import com.vslimit.kotlindemo.model.IPResult
 import com.vslimit.kotlindemo.model.Result
-import com.vslimit.kotlindemo.model.net.volley.Listener
-import com.vslimit.kotlindemo.model.net.volley.add
-import com.vslimit.kotlindemo.model.net.volley.toString
+import com.vslimit.kotlindemo.util.net.volley.Listener
+import com.vslimit.kotlindemo.util.net.volley.add
+import com.vslimit.kotlindemo.util.net.volley.toString
 import com.vslimit.kotlindemo.util.Bus
 import com.vslimit.kotlindemo.util.Const
 import com.vslimit.kotlindemo.util.NetworkUtil
@@ -44,12 +44,12 @@ class VolleyFragment() : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        Bus.register(this)
+//        Bus.register(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Bus.unregister(this)
+//        Bus.unregister(this)
     }
 
     fun init() {

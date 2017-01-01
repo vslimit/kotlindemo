@@ -1,4 +1,4 @@
-package com.vslimit.kotlindemo.model.net.volley
+package com.vslimit.kotlindemo.util.net.volley
 
 import android.content.res.Resources
 import com.android.volley.*

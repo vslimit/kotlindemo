@@ -1,4 +1,4 @@
-package com.vslimit.kotlindemo.model.net.retrofit
+package com.vslimit.kotlindemo.util.net.retrofit
 
 import android.content.res.Resources
 import com.vslimit.kotlindemo.R

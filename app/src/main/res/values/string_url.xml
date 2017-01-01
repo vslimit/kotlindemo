@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gank_list">http://gank.io/api/search/query/listview/category/Android/count/10/page/1</string>
+
+</resources>

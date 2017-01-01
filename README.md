@@ -10,4 +10,5 @@
     * **Retrofit Post**
 3. **Kotlin**实现**Tab选项卡**
 4. **Kotlin**实现**Toolbar**
-5. **Kotlin**实现***LoadingDialog*
+5. **Kotlin**实现**LoadingDialog**
+5. **Kotlin**实现**BaseAdapter**
