@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">AndroidDemo</string>
+    <string name="app_name">AndroidKotlinDemo</string>
 
     <string name="generic_server_down">网络状况不好，请稍后再试.</string>
     <string name="generic_error">系统正在维护，请稍后再试.</string>
     <string name="no_data_connection">网络状况不好，请稍后再试.</string>
     <string name="no_results_found">无返回结果，请稍后再试.</string>
+
+    <string name="to_do_list">TO DO LIST</string>
 
 </resources>

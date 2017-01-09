@@ -5,7 +5,6 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity"
     tools:openDrawer="start">
 
     <RelativeLayout
@@ -16,27 +15,11 @@
             android:id="@+id/tool"
             layout="@layout/toolbar" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/tabRv"
-
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:layout_alignParentBottom="true"
-            android:background="@android:color/white" />
-
-        <View
-            android:id="@+id/line"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_above="@id/tabRv"
-            android:background="@android:color/black" />
-
-        <FrameLayout
-            android:id="@+id/frameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/line"
-            android:layout_below="@id/tool" />
+            android:layout_height="wrap_content"
+            android:text="TASK LIST DEMO"
+            android:layout_below="@+id/tool" />
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView

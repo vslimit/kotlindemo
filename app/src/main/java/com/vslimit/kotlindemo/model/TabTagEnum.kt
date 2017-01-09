@@ -4,7 +4,6 @@ import com.vslimit.kotlindemo.R
 import com.vslimit.kotlindemo.fragment.BaseFragment
 import com.vslimit.kotlindemo.fragment.GankListFragment
 import com.vslimit.kotlindemo.fragment.MainFragment
-import com.vslimit.kotlindemo.fragment.ProductFragment
 
 /**
  * Created by vslimit on 16/12/2.

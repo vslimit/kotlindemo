@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import cn.com.scal.scalworkassistant.model.Base
+import com.vslimit.kotlindemo.model.Base
 import com.vslimit.kotlindemo.event.BaseEvent
 import com.vslimit.kotlindemo.util.Bus
 import org.jetbrains.anko.AnkoLogger
@@ -50,10 +50,10 @@ abstract class BaseFragment : Fragment(), AnkoLogger {
 
     override fun onPause() {
         super.onPause()
+        Bus.unregister(this)
     }
 
     override fun onDestroy() {
-        Bus.unregister(this)
         super.onDestroy()
     }
 

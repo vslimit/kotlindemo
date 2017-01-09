@@ -4,15 +4,16 @@ apply plugin: 'kotlin-android-extensions'
 buildscript {
     ext.anko_version = '0.8.2'
     ext.okhttp_version = '2.4.0'
+    ext.extend_version = '24.2.0'
 }
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         applicationId "com.vslimit.kotlindemo"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }
@@ -30,24 +31,26 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    compile 'com.android.support:multidex:1.0.1'
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:appcompat-v7:24.2.0'
     compile "org.jetbrains.anko:anko-sdk15:$anko_version"
     compile "org.jetbrains.anko:anko-support-v4:$anko_version"
     compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
     compile "org.jetbrains.anko:anko-design:$anko_version"
     compile "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
-    compile 'com.mcxiaoke.volley:library:1.0.19'
-    compile 'de.greenrobot:eventbus:2.4.0'
     compile "com.squareup.okhttp:okhttp:$okhttp_version"
     compile "com.squareup.okhttp:okhttp-urlconnection:$okhttp_version"
+    compile 'com.android.support:multidex:1.0.1'
+    compile "com.android.support:design:$extend_version"
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.alibaba:fastjson:1.2.1'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'com.android.support:support-v4:23.4.0'
+    compile "com.android.support:support-v4:$extend_version"
+
 }
 repositories {
     mavenCentral()

@@ -1,4 +1,4 @@
-package cn.com.scal.scalworkassistant.model
+package com.vslimit.kotlindemo.model
 
 /**
  * Created by vslimit on 16/5/24.

@@ -8,12 +8,11 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import cn.com.scal.scalworkassistant.model.Base
 import com.vslimit.kotlindemo.R
 import com.vslimit.kotlindemo.event.BaseEvent
+import com.vslimit.kotlindemo.model.Base
 import com.vslimit.kotlindemo.ui.LoadingDialog
 import com.vslimit.kotlindemo.ui.ToolbarManager
-import com.vslimit.kotlindemo.util.Bus
 import com.vslimit.kotlindemo.util.Const
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.find
@@ -26,7 +25,6 @@ abstract class BaseActivity : AppCompatActivity(), ToolbarManager, AnkoLogger {
     abstract val layoutResourceId: Int
 
     override val toolbar by lazy { find<Toolbar>(R.id.toolbar) }
-
 
     var loadingDialog: LoadingDialog? = null
 
@@ -46,6 +44,10 @@ abstract class BaseActivity : AppCompatActivity(), ToolbarManager, AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutResourceId)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar
+        ab!!.setHomeAsUpIndicator(R.drawable.ic_menu)
+        ab.setDisplayHomeAsUpEnabled(true)
         loadingDialog = LoadingDialog(this)
     }
 

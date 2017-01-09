@@ -1,6 +1,5 @@
 package com.vslimit.kotlindemo.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
@@ -50,6 +49,7 @@ class MainFragment() : BaseFragment() {
 
             }
         }
+
 
         demoRv.adapter = adapter
         adapter!!.notifyDataSetChanged()
