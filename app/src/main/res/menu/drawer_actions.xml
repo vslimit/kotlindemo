@@ -23,5 +23,5 @@
     <item
         android:id="@+id/drawLayoutTask"
         android:icon="@drawable/ic_statistics"
-        android:title="Tasks" />
+        android:title="Ganks" />
 </menu>

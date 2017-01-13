@@ -15,11 +15,11 @@
             android:id="@+id/tool"
             layout="@layout/toolbar" />
 
-        <TextView
+        <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TASK LIST DEMO"
-            android:layout_below="@+id/tool" />
+            android:layout_height="match_parent"
+            android:layout_below="@id/tool" />
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView

@@ -9,7 +9,7 @@ import org.jetbrains.anko.layoutInflater
 /**
  * Created by vslimit on 16/1/15.
  */
-class BaseAdapter<T>(val layoutResourceId: Int, val items: List<T>, val init: (View, T) -> Unit) :
+class BaseAdapter<T>(val layoutResourceId: Int, var items: List<T>, val init: (View, T) -> Unit) :
         RecyclerView.Adapter<BaseAdapter.ViewHolder<T>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<T> {

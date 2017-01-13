@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".activity.DemoActivity" />
         <activity android:name=".activity.TasksActivity"/>
+        <activity android:name=".mvp.ganks.GanksActivity"/>
     </application>
 
 </manifest>
