@@ -12,3 +12,5 @@
 4. **Kotlin**实现**Toolbar**
 5. **Kotlin**实现**LoadingDialog**
 5. **Kotlin**实现**BaseAdapter**
+6. **Kotlin**实现**DrawerLayout**
+7. **Kotlin**实现**MVP**
