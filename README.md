@@ -11,7 +11,7 @@
 3. **Kotlin**实现**Tab选项卡**
 4. **Kotlin**实现**Toolbar**
 5. **Kotlin**实现**LoadingDialog**
-5. **Kotlin**实现**BaseAdapter**
-6. **Kotlin**实现**DrawerLayout**
-7. **Kotlin**实现**MVP**
-7. **Kotlin**使用**Greendao**
+6. **Kotlin**实现**BaseAdapter**
+7. **Kotlin**实现**DrawerLayout**
+8. **Kotlin**实现**MVP**
+9. **Kotlin**使用**Greendao**
