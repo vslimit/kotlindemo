@@ -24,4 +24,9 @@
         android:id="@+id/drawLayoutTask"
         android:icon="@drawable/ic_statistics"
         android:title="Ganks" />
+
+    <item
+        android:id="@+id/drawLayoutUser"
+        android:icon="@drawable/ic_statistics"
+        android:title="Users" />
 </menu>

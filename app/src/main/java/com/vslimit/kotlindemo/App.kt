@@ -6,8 +6,11 @@ import android.support.multidex.MultiDex
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.Volley
+import com.facebook.stetho.Stetho
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.OkUrlFactory
+import com.vslimit.kotlindemo.mvp.data.DaoMaster
+import com.vslimit.kotlindemo.mvp.data.DaoSession
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
@@ -20,10 +23,20 @@ class App : Application() {
         var queue: RequestQueue? = null
     }
 
+    private var daoSession: DaoSession? = null
+
     override fun onCreate() {
         super.onCreate()
         instance = this
         queue = initQueue()
+        Stetho.initializeWithDefaults(this);
+        initDao()
+    }
+
+    fun initDao() {
+        val helper = DaoMaster.DevOpenHelper(this, "user")
+        val db = helper.writableDb
+        daoSession = DaoMaster(db).newSession()
     }
 
     override fun attachBaseContext(base: Context) {
@@ -39,5 +52,9 @@ class App : Application() {
             }
         }
         return Volley.newRequestQueue(this, hurlStack)
+    }
+
+    open fun getDaoSession(): DaoSession {
+        return daoSession!!
     }
 }
