@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.vslimit.kotlindemo.R
 import com.vslimit.kotlindemo.adapter.BaseAdapter
+//import com.vslimit.kotlindemo.extensions.database
 import com.vslimit.kotlindemo.extensions.loading
 import com.vslimit.kotlindemo.fragment.BaseFragment
 import com.vslimit.kotlindemo.mvp.data.User
@@ -42,7 +43,6 @@ class UsersFragment : BaseFragment(), UsersContract.View {
             }
         }
         userListRv.adapter = adapter
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

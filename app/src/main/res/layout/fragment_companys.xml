@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/companyListRv"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@android:color/white" />-->
+    <TextView
+        android:layout_width="match_parent" android:id="@+id/nameTv" android:text="demo"
+        android:layout_height="wrap_content" />
+
+    <Button android:layout_below="@id/nameTv"
+        android:layout_width="match_parent" android:text="show" android:id="@+id/showBtn"
+        android:layout_height="wrap_content" />
+    <Button android:layout_below="@id/showBtn"
+        android:layout_width="match_parent" android:text="insert" android:id="@+id/insertBtn"
+        android:layout_height="wrap_content" />
+    <Button android:layout_below="@id/insertBtn"
+        android:layout_width="match_parent" android:text="update" android:id="@+id/updateBtn"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
