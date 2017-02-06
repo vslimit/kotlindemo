@@ -9,8 +9,12 @@ import com.android.volley.toolbox.Volley
 import com.facebook.stetho.Stetho
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.OkUrlFactory
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider
 import com.vslimit.kotlindemo.mvp.data.DaoMaster
 import com.vslimit.kotlindemo.mvp.data.DaoSession
+import com.vslimit.kotlindemo.util.realm.Migration
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
@@ -29,8 +33,18 @@ class App : Application() {
         super.onCreate()
         instance = this
         queue = initQueue()
-        Stetho.initializeWithDefaults(this);
+        initStetho()
         initDao()
+        initRealm()
+    }
+
+    fun initStetho() {
+        Stetho.initialize(
+                Stetho.newInitializerBuilder(this).enableDumpapp(Stetho.defaultDumperPluginsProvider(this)).enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build()).build())
+    }
+
+    fun initRealm() {
+        Realm.init(this)
     }
 
     fun initDao() {

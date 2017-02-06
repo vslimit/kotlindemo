@@ -12,6 +12,7 @@ import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.db.update
 import org.jetbrains.anko.onClick
+import org.jetbrains.anko.support.v4.toast
 import java.util.*
 
 
@@ -63,8 +64,8 @@ class CompanyListFragment : BaseFragment() {
 
     fun init() {
         context.database.use {
-            val list = select(CompanyTable.TABLE_NAME)
-                    .parseList { Company(HashMap(it)) }
+            val list = select(com.vslimit.kotlindemo.db.CompanyTable.TABLE_NAME)
+                    .parseList { com.vslimit.kotlindemo.db.Company(java.util.HashMap(it)) }
             async() {
                 nameTv.text = list.size.toString()
             }
